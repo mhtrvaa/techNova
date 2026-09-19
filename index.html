@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechNova — IT xizmatlari</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">Tech<span>Nova</span></div>
+      <nav>
+        <a href="#about">Biz haqimizda</a>
+        <a href="#services">Xizmatlar</a>
+        <a href="#register">Ro'yxatdan o'tish</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Biznesingizni raqamlashtiring</h1>
+      <p>TechNova — kichik va o'rta bizneslar uchun veb-sayt, bot va IT-yechimlar yaratamiz.</p>
+      <a href="#register" class="btn">Bepul konsultatsiyaga yoziling</a>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2>Biz haqimizda</h2>
+      <p>TechNova 2023-yildan beri O'zbekistonda faoliyat yuritayotgan IT-kompaniya. Bizning maqsadimiz — har qanday kompaniyaga zamonaviy raqamli yechimlar taqdim etish.</p>
+    </div>
+  </section>
+
+  <section id="services" class="section alt">
+    <div class="container">
+      <h2>Xizmatlarimiz</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Veb-sayt yaratish</h3>
+          <p>Zamonaviy, tezkor va mobil qurilmalarga mos saytlar.</p>
+        </div>
+        <div class="card">
+          <h3>Telegram botlar</h3>
+          <p>Mijozlar bilan avtomatik muloqot qiluvchi botlar.</p>
+        </div>
+        <div class="card">
+          <h3>IT konsalting</h3>
+          <p>Biznesingiz uchun eng maqbul texnologik yechimlar bo'yicha maslahat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="register" class="section">
+    <div class="container narrow">
+      <h2>Ro'yxatdan o'tish</h2>
+      <p>Ma'lumotlaringizni qoldiring, mutaxassisimiz siz bilan bog'lanadi.</p>
+
+      <form id="registerForm">
+        <label>Ism va familiya
+          <input type="text" name="fullname" required placeholder="Ism Familiya">
+        </label>
+        <label>Telefon raqam
+          <input type="tel" name="phone" required placeholder="+998 90 123 45 67">
+        </label>
+        <label>Kompaniya nomi
+          <input type="text" name="company" placeholder="Kompaniyangiz nomi (ixtiyoriy)">
+        </label>
+        <label>Xabar / savolingiz
+          <textarea name="message" rows="4" placeholder="Nima haqida bog'lanishimizni xohlaysiz?"></textarea>
+        </label>
+        <button type="submit" class="btn" id="submitBtn">Yuborish</button>
+        <p id="formStatus" class="form-status"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 TechNova. Barcha huquqlar himoyalangan.</p>
+    </div>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
