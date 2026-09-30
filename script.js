@@ -1,12 +1,3 @@
-// ====== TELEGRAM SOZLAMALARI ======
-// 1) Telegramda @BotFather ga yozib, /newbot orqali bot yarating -> BOT_TOKEN oling
-// 2) Botingizga birinchi marta /start yozing (aks holda bot sizga xabar yubora olmaydi)
-// 3) CHAT_ID ni topish uchun: https://api.telegram.org/bot<TOKEN>/getUpdates
-//    manziliga kirib, "chat":{"id": ...} qismidagi raqamni oling
-const BOT_TOKEN = "8592169606:AAH_3u68R-kHKK36SSHe2wVHws4jz34I2Ew";
-const CHAT_ID = "443124902";
-// ===================================
-
 const form = document.getElementById("registerForm");
 const statusEl = document.getElementById("formStatus");
 const submitBtn = document.getElementById("submitBtn");
@@ -24,32 +15,34 @@ form.addEventListener("submit", async (e) => {
     return;
   }
 
-  const text =
-    `📩 Yangi ro'yxatdan o'tish (TechNova)\n\n` +
-    `👤 Ism: ${fullname}\n` +
-    `📞 Telefon: ${phone}\n` +
-    `🏢 Kompaniya: ${company}\n` +
-    `💬 Xabar: ${message}`;
-
   submitBtn.disabled = true;
   submitBtn.textContent = "Yuborilmoqda...";
 
   try {
-    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-    const res = await fetch(url, {
+    const res = await fetch("/api/register", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: CHAT_ID, text }),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        fullname,
+        phone,
+        company,
+        message
+      })
     });
 
     const data = await res.json();
 
     if (data.ok) {
-      showStatus("Rahmat! Arizangiz qabul qilindi, tez orada bog'lanamiz.", "success");
+      showStatus(
+        "Rahmat! Arizangiz qabul qilindi, tez orada bog'lanamiz.",
+        "success"
+      );
       form.reset();
     } else {
       console.error(data);
-      showStatus("Xatolik yuz berdi. BOT_TOKEN / CHAT_ID ni tekshiring.", "error");
+      showStatus("Xatolik yuz berdi. Qaytadan urinib ko'ring.", "error");
     }
   } catch (err) {
     console.error(err);
